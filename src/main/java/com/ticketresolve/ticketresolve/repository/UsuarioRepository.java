@@ -1,4 +1,4 @@
-package com.ticketresolve.ticketresolve.Repository;
+package com.ticketresolve.ticketresolve.repository;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
