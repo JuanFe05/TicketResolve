@@ -11,8 +11,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.proyecto.accesoSeguroService.model.Usuario;
-import com.proyecto.accesoSeguroService.repository.UsuarioRepository;
+import com.ticketresolve.ticketresolve.model.Usuario;
+import com.ticketresolve.ticketresolve.repository.UsuarioRepository;
 
 @Service
 public class UserDetailServiceImpl {
