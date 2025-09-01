@@ -1,4 +1,4 @@
-package com.ticketresolve.ticketresolve;
+package com.ticketresolve.ticketresolve.Repository;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
