@@ -1,5 +1,7 @@
 package com.ticketresolve.ticketresolve.controller;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 import java.util.stream.Collectors;
@@ -10,15 +12,14 @@ import org.springframework.web.bind.annotation.*;
 
 import jakarta.validation.Valid;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-
 import com.ticketresolve.ticketresolve.model.ERole;
 import com.ticketresolve.ticketresolve.model.Role;
 import com.ticketresolve.ticketresolve.model.Usuario;
 import com.ticketresolve.ticketresolve.repository.UsuarioRepository;
+
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 
 
 @RestController
@@ -29,6 +30,21 @@ public class UsuarioController {
 
     @Autowired
     private UsuarioRepository usuarioRepository;
+
+    @Operation(summary = "Login de usuario",
+               description = "Autentica al usuario y devuelve un JWT si las credenciales son correctas")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Login exitoso, retorna el token JWT"),
+            @ApiResponse(responseCode = "401", description = "Credenciales inválidas")
+    })
+    @PostMapping("/login")
+    public ResponseEntity<Map<String, String>> login(@RequestBody LoginRequest request) {
+        // aquí invocas el AuthenticationManager de Spring Security
+        // generas el JWT
+        Map<String, String> response = new HashMap<>();
+        response.put("token", "aqui_va_el_jwt");
+        return ResponseEntity.ok(response);
+    }
 
 
      @GetMapping("/hello")
