@@ -67,6 +67,5 @@ public class UsuarioController {
         usuarioRepository.deleteById(Long.parseLong(id));
         return "Se ha borrado el Usuario con id".concat(id);
      }
-     
-    
+
 }
