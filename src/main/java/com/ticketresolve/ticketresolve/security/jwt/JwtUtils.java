@@ -11,6 +11,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 
+
 import java.security.Key;
 import java.util.Date;
 
@@ -30,7 +31,7 @@ public class JwtUtils {
         return Keys.hmacShaKeyFor(keyBytes);
     }
 
-    // 🎟Generar token de acceso
+    // Generar token de acceso
     public String generateAccesToken(String username) {
         return Jwts.builder()
                 .setSubject(username)
