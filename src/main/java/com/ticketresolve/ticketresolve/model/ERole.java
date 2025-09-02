@@ -1,7 +1,7 @@
 package com.ticketresolve.ticketresolve.model;
 
-public class ERole {
-     ADMIN,
+public enum ERole {
+    ADMIN,
     CLIENTE,
     EMPLEADO,
 }

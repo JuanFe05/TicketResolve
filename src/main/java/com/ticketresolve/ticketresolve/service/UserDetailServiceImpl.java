@@ -15,7 +15,7 @@ import com.ticketresolve.ticketresolve.model.Usuario;
 import com.ticketresolve.ticketresolve.repository.UsuarioRepository;
 
 @Service
-public class UserDetailServiceImpl {
+public class UserDetailServiceImpl implements UserDetailsService {
     
     @Autowired
     private UsuarioRepository usuarioRepository;
