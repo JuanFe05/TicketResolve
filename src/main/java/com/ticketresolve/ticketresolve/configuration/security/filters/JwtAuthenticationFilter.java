@@ -1,10 +1,10 @@
-package com.ticketresolve.ticketresolve.security.filters;
+package com.ticketresolve.ticketresolve.configuration.security.filters;
 
 import com.fasterxml.jackson.core.exc.StreamReadException;
 import com.fasterxml.jackson.databind.DatabindException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.ticketresolve.ticketresolve.model.Usuario;
-import com.ticketresolve.ticketresolve.security.jwt.JwtUtils;
+import com.ticketresolve.ticketresolve.persistence.entity.Usuario;
+import com.ticketresolve.ticketresolve.configuration.security.jwt.JwtUtils;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

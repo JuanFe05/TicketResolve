@@ -1,4 +1,4 @@
-package com.ticketresolve.ticketresolve.controller;
+package com.ticketresolve.ticketresolve.presentation.dto;
 
 import java.util.Set;
 import jakarta.validation.constraints.Email;
@@ -11,9 +11,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CreateUsuarioDTO {
-    
+
+    private Long id;
+
     @Email
-    @NotBlank
     private String email;
 
     @NotBlank
@@ -21,5 +22,7 @@ public class CreateUsuarioDTO {
 
     @NotBlank
     private String password;
+
+    @NotBlank
     private Set<String> roles;
 }

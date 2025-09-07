@@ -1,7 +1,7 @@
-package com.ticketresolve.ticketresolve.security.filters;
+package com.ticketresolve.ticketresolve.configuration.security.filters;
 
-import com.ticketresolve.ticketresolve.security.jwt.JwtUtils;
-import com.ticketresolve.ticketresolve.service.UserDetailServiceImpl;
+import com.ticketresolve.ticketresolve.configuration.security.jwt.JwtUtils;
+import com.ticketresolve.ticketresolve.service.implementation.UserDetailServiceImpl;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
