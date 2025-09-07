@@ -1,7 +1,7 @@
 package com.ticketresolve.ticketresolve.model;
 
 public enum ERole {
-    ADMIN,
+    ADMINISTRADOR,
     CLIENTE,
     EMPLEADO,
 }
