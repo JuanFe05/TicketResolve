@@ -1,9 +1,9 @@
-package com.ticketresolve.ticketresolve.security;
+package com.ticketresolve.ticketresolve.configuration.security;
 
-import com.ticketresolve.ticketresolve.security.filters.JwtAuthenticationFilter;
-import com.ticketresolve.ticketresolve.security.filters.JwtAuthorizationFilter;
-import com.ticketresolve.ticketresolve.security.jwt.JwtUtils;
-import com.ticketresolve.ticketresolve.service.UserDetailServiceImpl;
+import com.ticketresolve.ticketresolve.configuration.security.filters.JwtAuthenticationFilter;
+import com.ticketresolve.ticketresolve.configuration.security.filters.JwtAuthorizationFilter;
+import com.ticketresolve.ticketresolve.configuration.security.jwt.JwtUtils;
+import com.ticketresolve.ticketresolve.service.implementation.UserDetailServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

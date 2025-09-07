@@ -1,4 +1,4 @@
-package com.ticketresolve.ticketresolve.controller;
+package com.ticketresolve.ticketresolve.presentation.controller;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;

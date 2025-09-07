@@ -1,10 +1,13 @@
-package com.ticketresolve.ticketresolve.controller;
+package com.ticketresolve.ticketresolve.presentation.controller;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
 import java.util.stream.Collectors;
+
+import com.ticketresolve.ticketresolve.presentation.dto.CreateUsuarioDTO;
+import com.ticketresolve.ticketresolve.presentation.dto.LoginRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -12,10 +15,10 @@ import org.springframework.web.bind.annotation.*;
 
 import jakarta.validation.Valid;
 
-import com.ticketresolve.ticketresolve.model.ERole;
-import com.ticketresolve.ticketresolve.model.Role;
-import com.ticketresolve.ticketresolve.model.Usuario;
-import com.ticketresolve.ticketresolve.repository.UsuarioRepository;
+import com.ticketresolve.ticketresolve.persistence.entity.ERole;
+import com.ticketresolve.ticketresolve.persistence.entity.Role;
+import com.ticketresolve.ticketresolve.persistence.entity.Usuario;
+import com.ticketresolve.ticketresolve.persistence.repository.IUsuarioRepository;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -29,7 +32,7 @@ public class UsuarioController {
     private PasswordEncoder passwordEncoder;
 
     @Autowired
-    private UsuarioRepository usuarioRepository;
+    private IUsuarioRepository usuarioRepository;
 
     @Operation(summary = "Login de usuario",
                description = "Autentica al usuario y devuelve un JWT si las credenciales son correctas")
@@ -37,6 +40,7 @@ public class UsuarioController {
             @ApiResponse(responseCode = "200", description = "Login exitoso, retorna el token JWT"),
             @ApiResponse(responseCode = "401", description = "Credenciales inválidas")
     })
+
     @PostMapping("/login")
     public ResponseEntity<Map<String, String>> login(@RequestBody LoginRequest request) {
         // aquí invocas el AuthenticationManager de Spring Security
@@ -45,17 +49,6 @@ public class UsuarioController {
         response.put("token", "aqui_va_el_jwt");
         return ResponseEntity.ok(response);
     }
-
-
-     @GetMapping("/hello")
-     public String hello() {
-         return new String();
-     }
-     
-     @GetMapping("/helloSecured")
-     public String helloSecured() {
-         return new String();
-     }
 
      @PostMapping("/createUsuario")
      public ResponseEntity<?> createUsuario(@Valid @RequestBody CreateUsuarioDTO createUsuarioDTO){

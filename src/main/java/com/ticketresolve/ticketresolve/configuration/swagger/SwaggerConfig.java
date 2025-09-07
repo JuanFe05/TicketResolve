@@ -1,4 +1,4 @@
-package com.ticketresolve.ticketresolve.swagger;
+package com.ticketresolve.ticketresolve.configuration.swagger;
 
 import org.springframework.http.HttpHeaders;
 
