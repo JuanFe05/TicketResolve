@@ -6,7 +6,7 @@ import java.util.Set;
 
 import java.util.stream.Collectors;
 
-import com.ticketresolve.ticketresolve.presentation.dto.CreateUsuarioDTO;
+import com.ticketresolve.ticketresolve.presentation.dto.UsuarioDTO;
 import com.ticketresolve.ticketresolve.presentation.dto.LoginRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -24,11 +24,10 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 
-
 @RestController
 public class UsuarioController {
 
-     @Autowired
+    @Autowired
     private PasswordEncoder passwordEncoder;
 
     @Autowired
@@ -51,7 +50,7 @@ public class UsuarioController {
     }
 
      @PostMapping("/createUsuario")
-     public ResponseEntity<?> createUsuario(@Valid @RequestBody CreateUsuarioDTO createUsuarioDTO){
+     public ResponseEntity<?> createUsuario(@Valid @RequestBody UsuarioDTO createUsuarioDTO){
         
         Set<Role> roles = createUsuarioDTO.getRoles().stream()
                 .map(role -> Role.builder()
