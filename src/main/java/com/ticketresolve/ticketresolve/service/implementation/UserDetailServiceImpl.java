@@ -1,4 +1,4 @@
-package com.ticketresolve.ticketresolve.service;
+package com.ticketresolve.ticketresolve.service.implementation;
 
 import java.util.Collection;
 import java.util.stream.Collectors;
@@ -11,14 +11,14 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.ticketresolve.ticketresolve.model.Usuario;
-import com.ticketresolve.ticketresolve.repository.UsuarioRepository;
+import com.ticketresolve.ticketresolve.persistence.entity.Usuario;
+import com.ticketresolve.ticketresolve.persistence.repository.IUsuarioRepository;
 
 @Service
-public class UserDetailServiceImpl {
+public class UserDetailServiceImpl implements UserDetailsService {
     
     @Autowired
-    private UsuarioRepository usuarioRepository;
+    private IUsuarioRepository usuarioRepository;
     
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException{
