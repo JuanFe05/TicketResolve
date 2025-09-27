@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  ticketresolve-api:
+    build: .
+    container_name: ticketresolve-app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - sonarqube
+    networks:
+      - springnet
+
+  sonarqube:
+    image: sonarqube:latest
+    container_name: sonarqube
+    environment:
+      - SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true
+    ports:
+      - "9000:9000"
+    networks:
+      - springnet
+
+networks:
+  springnet:
+    driver: bridge
