@@ -30,7 +30,7 @@ import io.swagger.v3.oas.annotations.servers.Server;
         ),
                 servers = {@Server(
                         description = "Servidor de Desarrollo",
-                        url = "http://localhost:8081"
+                        url = "http://localhost:8080"
                 ),
                 @Server(
                         description = "Servidor de Producción",
@@ -50,6 +50,6 @@ import io.swagger.v3.oas.annotations.servers.Server;
         scheme = "bearer",
         bearerFormat = "JWT"
 )
-public class SwaggerConfig {
 
+public class SwaggerConfig {
 }

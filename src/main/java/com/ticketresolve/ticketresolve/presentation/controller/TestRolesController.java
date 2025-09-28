@@ -21,14 +21,11 @@ public class TestRolesController {
                                     .orElse("SIN_ROL");
 
         switch (role) {
-            case "ROLE_ADMIN":
-                return "Hola " + username + ", has ingresado con el rol de ADMIN";
+            case "ROLE_ADMINISTRADOR":
+                return "Hola " + username + ", has ingresado con el rol de ADMINISTRADOR";
 
             case "ROLE_EMPLEADO":
                 return "Hola " + username + ", has ingresado con el rol de EMPLEADO";
-
-            case "ROLE_CLIENTE":
-                return "Hola " + username + ", has ingresado con el rol de CLIENTE";
 
             default:
                 return "Hola " + username + ", no tienes un rol válido para acceder";
