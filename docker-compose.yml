@@ -1,7 +1,7 @@
 version: "3.8"
 
 services:
-  ticketresolve-api:
+  ticketresolve:
     build: .
     container_name: ticketresolve-app
     ports:

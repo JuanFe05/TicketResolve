@@ -1,19 +1,15 @@
 package com.ticketresolve.ticketresolve.persistence.entity;
 
 import jakarta.persistence.*;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Table;
 import lombok.*;
 
-@Builder
 @Entity
+@Table(name = "roles")
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "roles")
+@AllArgsConstructor
+@Builder
 public class Role {
 
     @Id
@@ -21,6 +17,6 @@ public class Role {
     private Long id;
 
     @Enumerated(EnumType.STRING)
+    @Column(length = 20, nullable = false, unique = true)
     private ERole name;
-    
 }

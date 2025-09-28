@@ -15,4 +15,7 @@ public interface IUsuarioRepository extends CrudRepository<Usuario, Long> {
 
     @Query("select u from Usuario u where u.username = ?1")
     Optional<Usuario> getName(String username);
+
+    // 👇 Nuevo método para verificar existencia
+    boolean existsByUsername(String username);
 }
