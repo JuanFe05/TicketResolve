@@ -1,37 +1,37 @@
 version: "3.8"
 
 services:
-  db:
+  postgres:
     image: postgres:17
-    container_name: ticketresolve-db
+    container_name: postgres-db
     environment:
-      POSTGRES_DB: ticketresolve_db
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
+      POSTGRES_PASSWORD: 12345
+      POSTGRES_DB: ticketresolve_db
+    ports:
+      - "5432:5432"
     volumes:
-      - db_data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
       - ./init-scripts:/docker-entrypoint-initdb.d
     networks:
       - springnet
-    ports:
-      - "5432:5432"
 
   ticketresolve:
     build: .
     container_name: ticketresolve-app
-    depends_on:
-      - db
     ports:
-      - "8080:8080"
+      - "8085:8085"
+    depends_on:
+      - postgres
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/ticketresolve_db
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/ticketresolve_db
       SPRING_DATASOURCE_USERNAME: postgres
-      SPRING_DATASOURCE_PASSWORD: postgres
+      SPRING_DATASOURCE_PASSWORD: 12345
     networks:
       - springnet
 
 volumes:
-  db_data:
+  postgres_data:
 
 networks:
   springnet:
