@@ -7,20 +7,33 @@ services:
     ports:
       - "8080:8080"
     depends_on:
-      - sonarqube
+      - postgres
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/ticketresolve_db
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=12345
     networks:
       - springnet
 
-  sonarqube:
-    image: sonarqube:latest
-    container_name: sonarqube
+  postgres:
+    image: postgres:17
+    container_name: ticketresolve-db
+    restart: always
     environment:
-      - SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true
+      - POSTGRES_DB=ticketresolve_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=12345
     ports:
-      - "9000:9000"
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init-scripts:/docker-entrypoint-initdb.d
     networks:
       - springnet
 
 networks:
   springnet:
     driver: bridge
+
+volumes:
+  postgres_data:
