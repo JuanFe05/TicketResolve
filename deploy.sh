@@ -3,16 +3,18 @@ set -e
 
 echo "Iniciando despliegue de TicketResolve..."
 
-cd /home/ubuntu/mi-proyecto
+# Detecta automáticamente la ruta actual
+PROJECT_DIR=$(cd "$(dirname "$0")" && pwd)
+cd "$PROJECT_DIR"
 
 echo "Actualizando código fuente..."
 git pull origin main
 
-echo "Deteniendo contenedores antiguos..."
+echo "Deteniendo contenedores anteriores..."
 docker-compose down
 
-echo "🏗Construyendo e iniciando contenedores..."
+echo "🏗Construyendo y levantando contenedores..."
 docker-compose up --build -d
 
-echo "Despliegue completado correctamente."
+echo "Despliegue completado exitosamente."
 docker ps
