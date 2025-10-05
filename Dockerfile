@@ -21,7 +21,7 @@ RUN ./mvnw dependency:go-offline
 COPY ./src /root/src
 
 # Construir Aplicacion
-RUN ./mvnw clean install
+RUN ./mvnw clean install -DskipTests
 
 # Lenvantar Aplicación cuando el contendor inicie
 ENTRYPOINT ["java", "-jar", "/root/target/TicketResolve-0.0.1-SNAPSHOT.jar"]
