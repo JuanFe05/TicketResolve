@@ -31,11 +31,10 @@ jobs:
 
       - name: Analizar con SonarCloud
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
           mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:4.0.0.4121:sonar \
-            -Dsonar.projectKey=juanfe05_TicketResolve \
+            -Dsonar.projectKey=JuanFe05_TicketResolve \
             -Dsonar.organization=juanfe05 \
             -Dsonar.host.url=https://sonarcloud.io \
             -Dsonar.login=${{ secrets.SONAR_TOKEN }} \
