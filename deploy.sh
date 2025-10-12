@@ -13,7 +13,7 @@ git pull origin main
 echo "Deteniendo contenedores anteriores..."
 docker-compose down
 
-echo "🏗Construyendo y levantando contenedores..."
+echo "Construyendo y levantando contenedores..."
 docker-compose up --build -d
 
 echo "Despliegue completado exitosamente."
