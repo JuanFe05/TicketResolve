@@ -32,7 +32,11 @@ jobs:
       - name: Analizar con SonarCloud
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn verify sonar:sonar -Dsonar.projectKey=ticketresolve -Dsonar.organization=juanherman -Dsonar.host.url=https://sonarcloud.io -DskipTests
+        run: mvn verify sonar:sonar \
+          -Dsonar.projectKey=ticketresolve \
+          -Dsonar.organization=juanfe05 \
+          -Dsonar.host.url=https://sonarcloud.io \
+          -DskipTests
 
       - name: Copiar archivos a EC2
         uses: appleboy/scp-action@v0.1.7
